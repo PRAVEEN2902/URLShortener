@@ -6,6 +6,7 @@ const mongoose=require('mongoose')
 const flash = require('express-flash');
 const passportsetup=require('./config/passport')
 const passport = require('passport');
+const clipboard=require('clipboard')
 const cookieSession=require('cookie-session');
 mongoose.connect('mongodb+srv://Praveen:Srit@123@test.ldcov.mongodb.net/URLSHortener?retryWrites=true&w=majority',{
     useNewUrlParser:true,useUnifiedTopology:true,useCreateIndex:true
