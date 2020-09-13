@@ -1,0 +1,27 @@
+{
+  "name": "urlshortener",
+  "version": "1.0.0",
+  "description": "Tiny Url Generator ",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Praveen",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "cookie-session": "^1.4.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-flash": "0.0.2",
+    "heroku": "^7.42.13",
+    "mongoose": "^5.10.4",
+    "mongoose-ttl": "0.0.3",
+    "nodemon": "^2.0.4",
+    "passport": "^0.4.1",
+    "passport-facebook": "^3.0.0",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-local": "^1.0.0",
+    "shortid": "^2.2.15"
+  }
+}

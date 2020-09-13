@@ -1,0 +1,54 @@
+*{
+    margin:0;
+    padding:0;
+  }
+  body{
+      margin: 0;
+      background-image:url('flower.jpg');
+      background-size:cover;
+      background-position:center;
+      height:100vh;
+     
+  }
+  h1,h2{
+    display:flex;
+    font-family: 'Philosopher', sans-serif;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    margin-top: 25px;
+    color: #481380;
+    font-weight: bold;
+  }
+  
+  p{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    margin-top: 25px;
+    color: rgb(90, 240, 245);
+    font-weight: bold;
+    font-size: larger;
+    font-family: 'Lobster', cursive;
+  }
+ 
+#brand{
+    font-family: 'Pacifico', cursive;
+    color:#393b44;
+    font-size: 35px;
+}
+
+
+#login, #sign
+{
+    font-size: larger;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 28px;
+    font-weight: bolder;
+    color:#790c5a;
+    
+    margin: 5px;
+}
