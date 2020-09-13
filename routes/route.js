@@ -77,8 +77,8 @@ router.get('/facebook/callback',passport.authenticate('facebook'),(req,res)=>{
   res.redirect('/home')
 })
 
-router.get('/shortener/:shorturl',(req,res)=>{
-  user.shURL.findOne({short:'shortener/'+req.params.shorturl}).then(link=>{
+router.get('/:shorturl',(req,res)=>{
+  user.shURL.findOne({short:req.params.shorturl}).then(link=>{
     console.log(req.params.shorturl,link)
     if(link==null)
      res.sendStatus('404')

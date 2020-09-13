@@ -47,6 +47,7 @@
     <table class="table table-borderless table-hover table-light">
       <thead class="thead-dark">
         <tr>
+          <th scope="col"></th>
           <th scope="col">Shotened</th>
           <th scope="col">Original Link</th>
           <th scope="col">Expire At</th>
@@ -55,9 +56,13 @@
       <tbody>
         <% result.forEach(res=>{%>
           <tr>
-            <td><a href="<%=res.short%>" target="blank"><%=res.short%></a></td>
+            <td><button onclick="myFunction()" onmouseout="outFunc()">
+              <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+              Copy text
+              </button></td>
+            <td><a href="<%=res.short%>" target="blank">https://awfly.heroku.com/<%=res.short%></a></td>
             <td><a href="<%=res.full%>" target="blank"><%=res.full%></a></td>
-            <td><% new Date(res.expireAt)%>
+            <td><%= new Date(res.expireAt)%>
                
             </td>
           </tr>
@@ -71,6 +76,21 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script>
+      function myFunction() {
+  var copyText = document.getElementById("myInput");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  
+  var tooltip = document.getElementById("myTooltip");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
 
+function outFunc() {
+  var tooltip = document.getElementById("myTooltip");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+    </script>
 </body>
 </html>
