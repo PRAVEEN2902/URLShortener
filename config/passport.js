@@ -41,7 +41,7 @@ function(username, password, done) {
 ))
 
 passport.use(new GoogleStrategy({
-    callbackURL:"http://localhost:3000/google/redirect",
+    callbackURL:"http://awfly.herokuapp.com/google/redirect",
     clientID:"883772647053-3srokuq6jubt8sfiqogu17bv2tvdplhb.apps.googleusercontent.com",
     clientSecret:"yVPjf_BTs8Oa7jUM1FnfN05L"
 },(accessToken,refreshToken,profile,done)=>{
@@ -71,7 +71,7 @@ passport.use(new GoogleStrategy({
 passport.use(new FacebookStrategy({
     clientID: "898717763986513",
     clientSecret: "6b795b97f49c9619468ce3355341e2d5",
-    callbackURL: "http://localhost:3000/facebook/callback",
+    callbackURL: "https://awfly.herokuapp.com/facebook/callback",
     profileFields:['email','displayName']
   },
   function(accessToken, refreshToken, profile, done) {
