@@ -1,5 +1,5 @@
 const mongoose=require('mongoose')
-const ttl=require('mongoose-ttl')
+
 const Schema=mongoose.Schema
 const Schema1=mongoose.Schema
 const val=new Schema({
