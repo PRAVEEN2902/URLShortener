@@ -4,7 +4,7 @@
   }
   body{
       margin: 0;
-      background-image:url('flower.jpg');
+      background-image:url('sky.jpg');
       background-size:cover;
       background-position:center;
       height:100vh;
@@ -37,7 +37,7 @@
  
 #brand{
     font-family: 'Pacifico', cursive;
-    color:#393b44;
+    color:#cd0a0a;
     font-size: 35px;
 }
 
