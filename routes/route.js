@@ -4,7 +4,7 @@ const bcrypt=require('bcrypt')
 const user=require('../models/user')
 const ShortId=require('shortid')
 router.get('/',checknotauthenticate,(req,res)=>{
-    res.render('index',{msg:req.flash('err')})
+    res.render('login',{success:req.flash('success')})
 })
 router.get('/login',checknotauthenticate,(req,res)=>{
     res.render('login',{success:req.flash('success')})
