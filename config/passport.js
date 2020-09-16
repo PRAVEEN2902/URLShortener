@@ -20,7 +20,6 @@ passport.use(new LocalStrategy({
     passwordField: 'passwrd'
 },
 function(username, password, done) {
-    //console.log(username);
     user.model.find({email:username}).then(record=>{
         if(record.length==0)
         {
@@ -46,11 +45,9 @@ passport.use(new GoogleStrategy({
     clientID:keys.google.clientId,
     clientSecret:keys.google.clientSecret
 },(accessToken,refreshToken,profile,done)=>{
-   // console.log(profile)
     user.model.findOne({socialId:profile.id}).then((current)=>{
         if(current)
         {
-            console.log('User exists');
             done(null,current);
         }
         else{
@@ -60,7 +57,7 @@ passport.use(new GoogleStrategy({
                 email:profile.emails[0].value,
                 provider:profile.provider
             }).save().then((result)=>{
-                console.log('Saved Sucessfully'+result);
+                
                 done(null,result);
             })
         
@@ -76,11 +73,9 @@ passport.use(new FacebookStrategy({
     profileFields:['email','displayName']
   },
   function(accessToken, refreshToken, profile, done) {
-   // console.log(profile)
     user.model.findOne({socialId:profile.id}).then((current)=>{
         if(current)
         {
-            console.log('User exists');
             done(null,current);
         }
         else{
@@ -90,7 +85,6 @@ passport.use(new FacebookStrategy({
                 email:profile.emails[0].value,
                 provider:profile.provider
             }).save().then((result)=>{
-                console.log('Saved Sucessfully'+result);
                 done(null,result);
             })
         
