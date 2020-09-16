@@ -25,7 +25,6 @@ router.post('/shrink',checkauthenticate,(req,res)=>{
       short:ShortId.generate(),
       email:req.user.email
     }).save().then(result=>{
-      console.log(result)
       res.redirect('/home')
     })
 })
@@ -39,7 +38,6 @@ router.get('/sign',checknotauthenticate,(req,res)=>{
   })
   router.post('/register',(req,res)=>{
     user.model.find({email:req.body.email}).then(output=>{
-      console.log(output)
       if(output.length>0)
       {
         req.flash('info','User with email id exists');
@@ -54,7 +52,6 @@ router.get('/sign',checknotauthenticate,(req,res)=>{
             password:hash,
             provider:'local'
           }).save().then(result=>{
-            console.log(result);
             req.flash('success','Registered Successfully Login to Portal')
             res.redirect('/login')
           });
@@ -79,7 +76,6 @@ router.get('/facebook/callback',passport.authenticate('facebook'),(req,res)=>{
 
 router.get('/:shorturl',(req,res)=>{
   user.shURL.findOne({short:req.params.shorturl}).then(link=>{
-    console.log(req.params.shorturl,link)
     if(link==null)
      res.sendStatus('404')
 
