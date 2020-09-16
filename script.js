@@ -6,9 +6,9 @@ const mongoose=require('mongoose')
 const flash = require('express-flash');
 const passportsetup=require('./config/passport')
 const passport = require('passport');
-
+const keys=require('./keys')
 const cookieSession=require('cookie-session');
-mongoose.connect('mongodb+srv://Praveen:Srit@123@test.ldcov.mongodb.net/URLSHortener?retryWrites=true&w=majority',{
+mongoose.connect(`mongodb+srv://Praveen:${keys.db.password}@test.ldcov.mongodb.net/${keys.db.name}?retryWrites=true&w=majority`,{
     useNewUrlParser:true,useUnifiedTopology:true,useCreateIndex:true
 },()=>{
     console.log('Connected')

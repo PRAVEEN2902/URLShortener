@@ -4,6 +4,7 @@ const user=require('../models/user')
 const LocalStrategy=require('passport-local').Strategy
 const FacebookStrategy=require('passport-facebook')
 const bcrypt=require('bcrypt')
+const keys=require('../keys')
 passport.serializeUser((user,done)=>
 {
     done(null,user.id);
@@ -42,8 +43,8 @@ function(username, password, done) {
 
 passport.use(new GoogleStrategy({
     callbackURL:"http://awfly.herokuapp.com/google/redirect",
-    clientID:"883772647053-3srokuq6jubt8sfiqogu17bv2tvdplhb.apps.googleusercontent.com",
-    clientSecret:"yVPjf_BTs8Oa7jUM1FnfN05L"
+    clientID:keys.google.clientId,
+    clientSecret:keys.google.clientSecret
 },(accessToken,refreshToken,profile,done)=>{
    // console.log(profile)
     user.model.findOne({socialId:profile.id}).then((current)=>{
@@ -69,8 +70,8 @@ passport.use(new GoogleStrategy({
 }))
 
 passport.use(new FacebookStrategy({
-    clientID: "898717763986513",
-    clientSecret: "6b795b97f49c9619468ce3355341e2d5",
+    clientID:  keys.facebook.FACEBOOK_APP_ID,
+    clientSecret: keys.facebook.FACEBOOK_APP_SECRET,
     callbackURL: "https://awfly.herokuapp.com/facebook/callback",
     profileFields:['email','displayName']
   },
