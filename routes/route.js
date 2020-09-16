@@ -83,9 +83,7 @@ router.get('/:shorturl',(req,res)=>{
       res.redirect(link.full)
   })
 })
-router.get('/404',(req,res)=>{
-  res.render('404')
-})
+
 function check(req,res,next)
 {
     if(req.isAuthenticated())
